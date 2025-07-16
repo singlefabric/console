@@ -4,7 +4,7 @@
  */
 
 import 'styled-components';
-import { KubedTheme } from '@kubed/components';
+import { KubedTheme } from './components/theme/types';
 
 declare module 'styled-components' {
   export interface DefaultTheme extends KubedTheme {}

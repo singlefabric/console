@@ -9,3 +9,7 @@ babel.config.js
 .eslintrc.js
 locales/
 packages/*/lib/
+**/*.stories.ts
+**/*.stories.tsx
+**/*.stories.js
+**/*.stories.jsx

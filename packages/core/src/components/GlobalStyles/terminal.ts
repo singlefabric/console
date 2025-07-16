@@ -12,11 +12,22 @@ const terminalStyles = css`
     user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 
   .xterm.focus,
   .xterm:focus {
     outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
   }
 
   .xterm .xterm-helpers {
@@ -48,13 +59,17 @@ const terminalStyles = css`
   }
 
   .xterm .composition-view {
-    /* TODO: Composition position got messed up somewhere */
-    background: #000;
-    color: #fff;
+    background: #000000;
+    color: #ffffff;
     display: none;
     position: absolute;
     white-space: nowrap;
     z-index: 1;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .xterm .composition-view.active {
@@ -63,7 +78,7 @@ const terminalStyles = css`
 
   .xterm .xterm-viewport {
     /* On OS X this is required in order for the scroll bar to appear fully opaque */
-    background-color: #000;
+    background-color: #000000;
     overflow-y: scroll;
     cursor: default;
     position: absolute;
@@ -71,6 +86,27 @@ const terminalStyles = css`
     left: 0;
     top: 0;
     bottom: 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  }
+
+  .xterm .xterm-viewport::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .xterm .xterm-viewport::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .xterm .xterm-viewport::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .xterm .xterm-viewport::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5);
   }
 
   .xterm .xterm-screen {
@@ -93,7 +129,10 @@ const terminalStyles = css`
     position: absolute;
     top: 0;
     left: -9999em;
-    line-height: normal;
+    line-height: 1.5;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: 400;
   }
 
   .xterm.enable-mouse-events {
@@ -130,31 +169,37 @@ const terminalStyles = css`
   }
 
   .xterm-dim {
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
   .xterm-underline-1 {
     text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.8);
   }
 
   .xterm-underline-2 {
     text-decoration: double underline;
+    text-decoration-color: rgba(255, 255, 255, 0.8);
   }
 
   .xterm-underline-3 {
     text-decoration: wavy underline;
+    text-decoration-color: rgba(255, 255, 255, 0.8);
   }
 
   .xterm-underline-4 {
     text-decoration: dotted underline;
+    text-decoration-color: rgba(255, 255, 255, 0.8);
   }
 
   .xterm-underline-5 {
     text-decoration: dashed underline;
+    text-decoration-color: rgba(255, 255, 255, 0.8);
   }
 
   .xterm-strikethrough {
     text-decoration: line-through;
+    text-decoration-color: rgba(255, 255, 255, 0.8);
   }
 
   .xterm-screen .xterm-decoration-container .xterm-decoration {
@@ -168,11 +213,77 @@ const terminalStyles = css`
     top: 0;
     right: 0;
     pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
   }
 
   .xterm-decoration-top {
     z-index: 2;
     position: relative;
+  }
+
+  /* Selection styling */
+  .xterm .xterm-selection div {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+  }
+
+  /* Cursor styling */
+  .xterm .xterm-cursor-layer .xterm-cursor {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+  }
+
+  .xterm .xterm-cursor-layer .xterm-cursor.xterm-cursor-blink {
+    animation: xterm-cursor-blink 1.2s ease-in-out infinite;
+  }
+
+  @keyframes xterm-cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Link styling */
+  .xterm .xterm-link {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+  }
+
+  .xterm .xterm-link:hover {
+    text-decoration-color: #ffffff;
+  }
+
+  /* Error text styling */
+  .xterm .xterm-color-1 {
+    color: #ff6b6b;
+  }
+
+  /* Success text styling */
+  .xterm .xterm-color-2 {
+    color: #51cf66;
+  }
+
+  /* Warning text styling */
+  .xterm .xterm-color-3 {
+    color: #ffd43b;
+  }
+
+  /* Info text styling */
+  .xterm .xterm-color-4 {
+    color: #74c0fc;
+  }
+
+  /* Muted text styling */
+  .xterm .xterm-color-8 {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Bright text styling */
+  .xterm .xterm-color-15 {
+    color: #ffffff;
+    font-weight: 500;
   }
 `;
 

@@ -78,18 +78,19 @@ export default function Header() {
   }, []);
 
   const { getNav, setNav } = useGlobalStore();
-  let navs = getNav(platformNavKey);
+  const [navs, setNavs] = React.useState(() => getNav(platformNavKey));
 
   useEffect(() => {
     if (!navs) {
-      navs = getGlobalNavs();
-      setNav(platformNavKey, navs);
+      const globalNavs = getGlobalNavs();
+      setNav(platformNavKey, globalNavs);
+      setNavs(globalNavs); // set local state too
     }
 
     const scrollHandler = () => setIsScroll(document.documentElement.scrollTop > 10);
     document.addEventListener('scroll', scrollHandler);
     return () => document.removeEventListener('scroll', scrollHandler);
-  }, []);
+  }, [navs, getGlobalNavs, setNav]);
 
   const topbarNavs = globals.config.topbarNavs.children;
 
@@ -148,11 +149,12 @@ export default function Header() {
                   );
                 }
 
+                const iconElement = nav.icon ? <Icon name={nav.icon} /> : <Dashboard />;
                 const props: ButtonProps & { key: string } = {
                   key: nav.name,
                   variant: 'text',
                   className: 'global-nav',
-                  leftIcon: <Icon name={nav.icon ?? 'dashboard'} /> ?? <Dashboard />,
+                  leftIcon: iconElement,
                 };
 
                 return (

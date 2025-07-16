@@ -8,7 +8,7 @@ import get from 'lodash/get';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { KubedConfigProvider, CssBaseline, Notify } from '@kubed/components';
+import { KubedConfigProvider, CssBaseline, Notify } from '/home/canokan/mindaeon/console/packages/shared/src/components/'
 import { useLocalStorage } from '@kubed/hooks';
 import { getBrowserLang, useGlobalStore, aliasNameStore } from '@ks-console/shared';
 // import { useWatchExtensions } from './stores/extension';

@@ -28,7 +28,7 @@ function ProbeRecord({ probe, title, tagType, noTime = false }: Props) {
     probeType = 'TCP_PORT';
     probeDetail = `Open socket on port ${probe.tcpSocket.port} (TCP)`;
   } else if ('grpc' in probe) {
-    probeType = 'GRPC_PORT'
+    probeType = 'GRPC_PORT';
     probeDetail = `Open grpc on port ${probe.grpc.port} (GRPC)`;
   } else {
     const { command = [] } = probe.exec;

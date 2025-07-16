@@ -30,7 +30,9 @@ export const Control = styled.div<{ hasIcon?: boolean }>`
   padding: 12px 16px;
   border: 1px solid #ccd3db;
   display: grid;
-  grid-template-columns: ${({ hasIcon = false }) => (hasIcon ? '40px' : '')} 40px minmax(0, 1fr) auto;
+  grid-template-columns:
+    ${({ hasIcon = false }) => (hasIcon ? '40px' : '')} 40px minmax(0, 1fr)
+    auto;
   cursor: pointer;
   align-items: center;
 `;

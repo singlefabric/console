@@ -7,9 +7,11 @@ import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import get from 'lodash/get';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { KubedConfigProvider, CssBaseline, Loading, Notify } from '@kubed/components';
+import { KubedConfigProvider, CssBaseline, Loading, Notify } from '/home/canokan/mindaeon/console/packages/shared/src/components/';
 import { useLocalStorage } from '@kubed/hooks';
-import { CacheStoreProvider, getBrowserLang, useGlobalStore } from '@ks-console/shared';
+import {  useGlobalStore } from '/home/canokan/mindaeon/console/packages/shared/src/stores/global';
+import {getBrowserLang} from '/home/canokan/mindaeon/console/packages/shared/src/utils/common'
+import  {CacheStoreProvider} from '/home/canokan/mindaeon/console/packages/shared/src/hooks/useCache';
 import i18n from './utils/i18n';
 import emitter from './utils/emitter';
 

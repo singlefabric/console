@@ -22,8 +22,9 @@ export const Card = styled.div`
 export const Label = styled.div`
   display: block;
   margin-bottom: 4px;
-  font-family: 'PingFang SC', 'Lantinghei SC', 'Helvetica Neue', Helvetica, Arial, 'Microsoft YaHei',
-    微软雅黑, STHeitiSC-Light, simsun, 宋体, 'WenQuanYi Zen Hei', 'WenQuanYi Micro Hei', sans-serif;
+  font-family:
+    'PingFang SC', 'Lantinghei SC', 'Helvetica Neue', Helvetica, Arial, 'Microsoft YaHei', 微软雅黑,
+    STHeitiSC-Light, simsun, 宋体, 'WenQuanYi Zen Hei', 'WenQuanYi Micro Hei', sans-serif;
   font-size: 12px;
   font-weight: normal;
   font-style: normal;

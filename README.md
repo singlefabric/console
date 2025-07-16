@@ -108,3 +108,7 @@ Please submit any KubeSphere Console bugs, issues, and feature requests to [Kube
 Welcome to contribute to KubeSphere Console, see [Contributing Guide](CONTRIBUTING.md).
 
 The KubeSphere localization project has been launched on Crowdin. You can help localize the KubeSphere web console by referring to the [localization guide](docs/join-the-kubesphere-localization-project.md).
+
+
+## prompt
+update the styled-components I provided so they visually align with the Perplexity.ai website's theme, fonts, and style, You'll analyze the typical Perplexity.ai website style characteristics and update  CSS accordingly
